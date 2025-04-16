@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Week 4 - Drawing with p5.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  <script src="week4.js" defer></script>
+</head>
+<body>
+  <div id="title-container">
+    <canvas id="title-canvas"></canvas>
+  </div>
+
+  <div class="face-container">
+    <!-- 画出来的人脸 + 蓝猫 -->
+    <div id="faceCanvas-holder"></div>
+  </div>
+
+  <div class="code-section">
+    <h2> Code of my face😼</h2>
+    <pre>
+
+function drawSelfPortrait(x, y) {
+  push(); translate(x, y);
+  noStroke(); fill('#FFD700');
+  ellipse(0, 0, 220, 280); // head
+  fill('#A0522D');
+  beginShape(); // hair
+  vertex(-110, -140); bezierVertex(-140, -60, -100, 100, -90, 150);
+  bezierVertex(-20, 160, 20, 160, 90, 150);
+  bezierVertex(100, 100, 140, -60, 110, -140); endShape(CLOSE);
+  drawCoolEye(-50, -30); drawCoolEye(50, -30);
+  fill('#FFB347'); ellipse(0, 20, 15, 10); // nose
+  fill('#FF69B4'); arc(0, 50, 60, 30, 0, PI); // mouth
+  pop();
+}
+    </pre>
+  </div>
+
+  <div class="drawing-box">
+    <h2>Try Drawing Your Own!</h2>
+    <div id="drawCanvas-holder"></div>
+    <button onclick="enableDraw()">✏️ Toggle Draw Mode</button>
+  </div>
+</body>
+
+<style>body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    text-align: center;
+  }
+  
+  #title-canvas {
+    width: 100%;
+    height: 300px;
+    display: block;
+    background: #0a0a0a;
+  }
+  
+  .face-container {
+    margin-top: -50px;
+  }
+  
+  .code-section {
+    margin: 40px auto;
+    max-width: 800px;
+    background: #eee;
+    padding: 20px;
+    text-align: left;
+    border-radius: 10px;
+  }
+  
+  pre {
+    font-size: 14px;
+    background: #111;
+    color: #0f0;
+    padding: 20px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+  
+  .drawing-box {
+    margin-top: 50px;
+  }
+  </style>
+</html>
