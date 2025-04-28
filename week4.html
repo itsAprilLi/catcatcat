@@ -1,89 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Week 4 - Drawing with p5.js</title>
+  <meta charset="UTF-8">
+  <title>Week 4 Study</title>
+  <link rel="stylesheet" href="week4style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
   <script src="week4.js" defer></script>
 </head>
 <body>
-  <div id="title-container">
-    <canvas id="title-canvas"></canvas>
+  <!-- 顶部标题 -->
+  <div class="title">
+    <h1>WELCOME TO WEEK 4</h1>
   </div>
 
-  <div class="face-container">
-    <!-- 画出来的人脸 + 蓝猫 -->
-    <div id="faceCanvas-holder"></div>
+  <!-- 中部动态区域 -->
+  <div class="floating-area">
+    <div id="sketch-holder"></div>
+    <div class="center-text floating">
+      <h2>In Week 4, we focused on using <strong>functions in p5.js</strong> to create illustrations.<br>
+      By building characters through modular code, we practiced drawing with geometric shapes such as ellipses, rectangles, and arcs.<br>
+      The goal was to combine these shapes into faces, animals, and abstract compositions.</h2>
+    </div>
   </div>
 
-  <div class="code-section">
-    <h2> Code of my face😼</h2>
-    <pre>
-
-function drawSelfPortrait(x, y) {
-  push(); translate(x, y);
-  noStroke(); fill('#FFD700');
-  ellipse(0, 0, 220, 280); // head
-  fill('#A0522D');
-  beginShape(); // hair
-  vertex(-110, -140); bezierVertex(-140, -60, -100, 100, -90, 150);
-  bezierVertex(-20, 160, 20, 160, 90, 150);
-  bezierVertex(100, 100, 140, -60, 110, -140); endShape(CLOSE);
-  drawCoolEye(-50, -30); drawCoolEye(50, -30);
-  fill('#FFB347'); ellipse(0, 20, 15, 10); // nose
-  fill('#FF69B4'); arc(0, 50, 60, 30, 0, PI); // mouth
+  <!-- 下部：代码 + 过程图 -->
+  <div class="bottom-section">
+    <div class="code-block">
+      <h2>drawing with p5js</h2>
+      <pre><code>
+function drawPortrait(x, y) {
+  push();
+  translate(x, y);
+  scale(1.8);
+  noStroke();
+  fill('#B48A78');
+  rect(-80, -10, 160, 100);
+  fill('#FFE600');
+  ellipse(0, 0, 160, 160);
+  fill('#FFE600');
+  ellipse(-85, 0, 30, 30);
+  ellipse(85, 0, 30, 30);
+  fill('#B48A78');
+  beginShape();
+  vertex(0, -70);
+  bezierVertex(-60, -60, -60, 20, 0, 40);
+  bezierVertex(-20, 20, -20, -60, 0, -70);
+  endShape(CLOSE);
+  beginShape();
+  vertex(0, -70);
+  bezierVertex(60, -60, 60, 20, 0, 40);
+  bezierVertex(20, 20, 20, -60, 0, -70);
+  endShape(CLOSE);
+  drawCuteDotEye(-50, 10);
+  drawCuteDotEye(50, 10);
+  stroke('#111');
+  strokeWeight(3);
+  noFill();
+  arc(-35, -35, 5, 5, PI, TWO_PI);
+  arc(35, -35, 5, 5, PI, TWO_PI);
+  strokeWeight(4);
+  beginShape();
+  curveVertex(-10, 20);
+  curveVertex(-5, 24);
+  curveVertex(0, 22);
+  curveVertex(5, 24);
+  curveVertex(10, 20);
+  endShape();
   pop();
 }
-    </pre>
+      </code></pre>
+    </div>
+
+    <div id="process-pics"></div>
   </div>
 
-  <div class="drawing-box">
-    <h2>Try Drawing Your Own!</h2>
-    <div id="drawCanvas-holder"></div>
-    <button onclick="enableDraw()">✏️ Toggle Draw Mode</button>
+  <!-- 鼠标变猫按钮 -->
+  <div class="cursor-btn">
+    <button id="cat-cursor">🐾 Click to use cat cursor</button>
   </div>
 </body>
-
-<style>body {
-    margin: 0;
-    font-family: sans-serif;
-    background: #f5f5f5;
-    color: #222;
-    text-align: center;
-  }
-  
-  #title-canvas {
-    width: 100%;
-    height: 300px;
-    display: block;
-    background: #0a0a0a;
-  }
-  
-  .face-container {
-    margin-top: -50px;
-  }
-  
-  .code-section {
-    margin: 40px auto;
-    max-width: 800px;
-    background: #eee;
-    padding: 20px;
-    text-align: left;
-    border-radius: 10px;
-  }
-  
-  pre {
-    font-size: 14px;
-    background: #111;
-    color: #0f0;
-    padding: 20px;
-    border-radius: 5px;
-    overflow-x: auto;
-  }
-  
-  .drawing-box {
-    margin-top: 50px;
-  }
-  </style>
 </html>

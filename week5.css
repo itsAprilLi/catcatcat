@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #d8dce0; /* 浅灰背景 */
+    color: #111;
+  }
+  
+  header {
+    background-color: #002288; /* 深蓝 */
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .intro {
+    font-size: 1.1rem;
+    color: #ccc;
+  }
+  
+  main {
+    padding: 2rem;
+  }
+  
+  .canvas-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+  }
+  
+  .canvas-box {
+    width: 45%;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 50, 0.1);
+  }
+  
+  .canvas-box h2 {
+    margin-top: 0;
+    color: #880044; /* 暗红紫 */
+  }
+  
+  .summary {
+    background-color: #ff0044;
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
