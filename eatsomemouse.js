@@ -104,7 +104,7 @@ function drawCatEars(x, y) {
 function drawFloatingMice() {
     push();
     translate(width, 0);
-    scale(-1, 1); // 👈 画面整体镜像
+    scale(-1, 1); //  画面整体镜像
   
     for (let i = 0; i < mice.length; i++) {
       let m = mice[i];
@@ -120,7 +120,7 @@ function drawFloatingMice() {
       ellipse(-25, -30, 20, 20);
       ellipse(25, -30, 20, 20);
   
-      // 👇 在镜像状态下再翻转一次文字
+      //  在镜像状态下再翻转一次文字
       push();
       scale(-1, 1); // 文字反镜像回来
       fill(255);
@@ -203,17 +203,17 @@ function mousePressed() {
 function mousePressed() {
   if (!showPopup) return;
 
-  // ✅ YES 按钮检测（左边按钮）
+  //  YES 按钮检测（左边按钮）
   if (dist(mouseX, mouseY, width / 2 - 80, height / 2 + 40) < 50) {
     // 点击 YES → 跳转到 week 页面
     window.location.href = `week${eatenWeek}.html`;
   }
 
-  // ✅ NO 按钮检测（右边按钮）
+  //  NO 按钮检测（右边按钮）
   if (dist(mouseX, mouseY, width / 2 + 80, height / 2 + 40) < 50) {
     showPopup = false;
 
-    // 👇 让对应老鼠复活
+    //  让对应老鼠复活
     for (let i = 0; i < mice.length; i++) {
       if (mice[i].label === `week ${eatenWeek}`) {
         mice[i].alive = true;
